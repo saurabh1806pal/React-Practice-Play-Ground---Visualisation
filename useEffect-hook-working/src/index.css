@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0a0f;
+    color: #e8e8f0;
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding: 3rem 1rem 2.5rem;
+  }
+  .header-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #4a4a6a;
+    margin-bottom: 0.8rem;
+  }
+  .header h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .header h1 .hook { color: #7b6eff; }
+  .header-sub {
+    margin-top: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    color: #4a4a6a;
+    line-height: 1.6;
+  }
+
+  /* ── Cards ── */
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .card {
+    border-radius: 12px;
+    border: 1px solid #1e1e2e;
+    overflow: hidden;
+    background: #0e0e18;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.6rem;
+    border-bottom: 1px solid #1e1e2e;
+  }
+  .card-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e8e8f0;
+    letter-spacing: -0.01em;
+  }
+  .card-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: #4a4a6a;
+    margin-top: 0.1rem;
+    letter-spacing: 0.06em;
+  }
+
+  .card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  /* ── Code panel ── */
+  .code-panel {
+    padding: 1.4rem 1.6rem;
+    border-right: 1px solid #1e1e2e;
+    background: #080810;
+  }
+  .code-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #333355;
+    margin-bottom: 0.8rem;
+  }
+  pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.75;
+    color: #8888aa;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .kw  { color: #7b6eff; }   /* keyword  */
+  .fn  { color: #5eceff; }   /* function */
+  .str { color: #5effc0; }   /* string   */
+  .cm  { color: #333355; }   /* comment  */
+  .num { color: #ffb86c; }   /* number   */
+
+  /* ── Live panel ── */
+  .live-panel {
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .live-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #333355;
+  }
+
+  /* ── Log ── */
+  .log {
+    background: #080810;
+    border: 1px solid #1e1e2e;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    min-height: 5rem;
+    max-height: 10rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .log-entry {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    animation: slideIn 0.2s ease-out;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-6px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .log-time { color: #333355; margin-right: 0.5rem; }
+  .log-empty { color: #2a2a44; font-style: italic; font-size: 0.7rem; }
+
+  /* ── Controls ── */
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .ctrl-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+    letter-spacing: 0.04em;
+  }
+  .ctrl-btn:active { transform: scale(0.96); opacity: 0.8; }
+  .ctrl-btn.purple { background: #7b6eff; color: #fff; }
+  .ctrl-btn.teal   { background: #5eceff; color: #080810; }
+  .ctrl-btn.green  { background: #5effc0; color: #080810; }
+  .ctrl-btn.ghost  {
+    background: transparent;
+    border: 1px solid #2a2a44;
+    color: #4a4a6a;
+  }
+
+  /* ── Counter display ── */
+  .big-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .count-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: #4a4a6a;
+    margin-top: 0.3rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── Timer display ── */
+  .timer-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .timer-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    margin-top: 0.3rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── Status pill ── */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 99px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  .pill-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+  }
+
+  /* ── Per-card accent colours ── */
+  /* Card 1 — purple */
+  .c1 .card-number  { background: rgba(123,110,255,0.15); color: #7b6eff; }
+  .c1 .big-count    { color: #7b6eff; }
+  .c1 .pill         { background: rgba(123,110,255,0.12); color: #7b6eff; }
+  .c1 .pill-dot     { background: #7b6eff; }
+
+  /* Card 2 — teal */
+  .c2 .card-number  { background: rgba(94,206,255,0.12); color: #5eceff; }
+  .c2 .big-count    { color: #5eceff; }
+  .c2 .pill         { background: rgba(94,206,255,0.1); color: #5eceff; }
+  .c2 .pill-dot     { background: #5eceff; }
+  .c2 .log-entry    { color: #5eceff; }
+
+  /* Card 3 — green */
+  .c3 .card-number  { background: rgba(94,255,192,0.1); color: #5effc0; }
+  .c3 .timer-display { color: #5effc0; }
+  .c3 .timer-status  { color: #5effc0; }
+  .c3 .pill          { background: rgba(94,255,192,0.1); color: #5effc0; }
+  .c3 .pill-dot      { background: #5effc0; }
+  .c3 .log-entry     { color: #5effc0; }
+
+  /* Card 1 log */
+  .c1 .log-entry { color: #7b6eff; }
