@@ -22,8 +22,6 @@ const todoItemReducer = (currentTodoItems, action) => {
 export default function TodoApp() {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
-
-
   const [todos, dispatch] = useReducer(todoItemReducer, []);
 
   const addTodo = (name, date) => {
